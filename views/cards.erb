@@ -42,26 +42,28 @@
       <% end %>
       </div>
 
-      <div class="page backs">
-      <% page.each_with_index do |story, i| %>
-        <% next if story.nil? %>
-        <div class="<%= story.story_type %> card rubber-stamp double-sided" id="back-<%= i %>">
-          <div class="back side">
-            <div class="header">
-              <span class="project"><%= story.name %></span>
-            </div>
-            <div class="middle">
-              <% if story.description %>
-                <div class="description"><%= markdown(story.description.gsub("\n", "\n\n")) %></div>
-              <% end %>
-            </div>
-            <div class="footer">
-              <span class="id"><%= story.id %></span>
+      <% if @page_backs %>
+        <div class="page backs">
+        <% page.each_with_index do |story, i| %>
+          <% next if story.nil? %>
+          <div class="<%= story.story_type %> card rubber-stamp double-sided" id="back-<%= i %>">
+            <div class="back side">
+              <div class="header">
+                <span class="project"><%= story.name %></span>
+              </div>
+              <div class="middle">
+                <% if story.description %>
+                  <div class="description"><%= markdown(story.description.gsub("\n", "\n\n")) %></div>
+                <% end %>
+              </div>
+              <div class="footer">
+                <span class="id"><%= story.id %></span>
+              </div>
             </div>
           </div>
+        <% end %>
         </div>
       <% end %>
-      </div>
     <% end %>
   </div>
 </body>
