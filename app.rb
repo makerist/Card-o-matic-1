@@ -100,7 +100,7 @@ class CardOMatic < Sinatra::Base
       options.merge!(fields: ':default,stories(:default,owners)')
       options.merge!(offset: iteration-1) if iteration > 1
       @project.iterations(options).first.stories
-    end
+    end.sort_by(&:updated_at).reverse
 
     @with_qr_codes = params[:with_qr_codes] == 'true'
     @page_backs = params[:page_backs] == 'true'
