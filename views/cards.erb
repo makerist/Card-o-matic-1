@@ -29,13 +29,13 @@
                   <img src="<%= @story_link %><%= story.id %>" alt="Link to pivotal story" class="qr-image"/>
                 </span>
               <% end %>
-              <% if story.labels.any? %>
-                <span class="labels">
-                  <% story.labels.each do |label| %>
-                    <span class="label"><%= label.name %></span>
-                  <% end %>
-                 <span>
-              <% end %>
+              <span class="printed"><%= Date.today %></span>
+              <span class="labels">
+                <span class="label current_state"><%= story.current_state %></span>
+                <% story.labels.each do |label| %>
+                  <span class="label"><%= label.name %></span>
+                <% end %>
+              <span>
             </div>
           </div>
         </div>

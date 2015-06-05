@@ -104,6 +104,11 @@
   color: #fff;
   padding: 1mm;
 }
+.label.current_state {
+  border: 1px solid #333;
+  background-color: #fff;
+  color: #333;
+}
 
 .header .project,
 .header .id {
@@ -179,13 +184,14 @@
   vertical-align: top;
 }
 
-.requester {
+.printed {
+  font-size: 0.75em;
+  color: #777;
   float: left;
 }
 
-.requester:before {
-  content: "By: ";
-  font-weight: bold;
+.printed:before {
+  content: "Printed: ";
 }
 
 
@@ -325,6 +331,7 @@
   height: inherit;
   display: inline-block;
   position: relative;
+  float: left;
 }
 
 .qr-image {
