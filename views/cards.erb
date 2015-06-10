@@ -5,8 +5,9 @@
 </head>
 <body>
   <div id="pivotal-cards-pages" class="rubber-stamp double-sided">
-    <% @stories.each_slice(4) do |page| %>
-      <div class="page fronts">
+    <% cards_per_page = @page_backs ? 4 : 8 %>
+    <% @stories.each_slice(cards_per_page) do |page| %>
+      <div class="page fronts <%= @page_backs ? 'four-cards' : 'eight-cards' %>">
       <% page.each_with_index do |story, i| %>
         <% next if story.nil? %>
         <div class="<%= story.story_type %> card" id="front-<%= i %>">
