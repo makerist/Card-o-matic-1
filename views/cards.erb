@@ -31,7 +31,7 @@
               <% end %>
               <span class="printed"><%= Date.today %></span>
               <span class="labels">
-                <span class="label current_state"><%= story.current_state %></span>
+                <span class="label current_state"><%= story.current_state.gsub(/^./, story.current_state.chars.first.capitalize) %></span>
                 <% story.labels.each do |label| %>
                   <span class="label"><%= label.name %></span>
                 <% end %>

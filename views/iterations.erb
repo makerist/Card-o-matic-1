@@ -89,6 +89,19 @@
     </li>
   </ul>
 
+  <p>Which states would you like to select?</p>
+
+  <ul>
+    <% CardOMatic::STATE_FILTER_DEFAULTS.each do |state, checked| %>
+      <li>
+        <label>
+          <input type="checkbox" id=<%="state_#{state}"%> name="states[]" value=<%=state%> <%= checked ? "checked" : nil %>>
+          <%= state.gsub(/^./, state.chars.first.capitalize) %>
+        </label>
+      </li>
+    <% end %>
+  </ul>
+
   <p>
     <button type="submit">Generate these cards <span>(opens in a new window)</span></button>
     <input type="hidden" name="project_id" value="<%= @project.id %>" />

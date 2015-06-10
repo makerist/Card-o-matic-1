@@ -44,6 +44,15 @@ class CardOMatic < Sinatra::Base
     erb :projects
   end
 
+  STATE_FILTER_DEFAULTS = {
+    "unstarted" => true,
+    "started" => true,
+    "finished" => true,
+    "delivered" => false,
+    "rejected" => false,
+    "accepted" => false,
+    "unscheduled" => false,
+  }
   post '/iterations' do
     client = setup_api_key
     setup_project(client)
@@ -100,7 +109,15 @@ class CardOMatic < Sinatra::Base
       options.merge!(fields: ':default,stories(:default,owners)')
       options.merge!(offset: iteration-1) if iteration > 1
       @project.iterations(options).first.stories
-    end.sort_by(&:updated_at).reverse
+    end
+
+    @stories = @stories.sort_by(&:updated_at).reverse
+
+    if params[:states].to_s.size > 0 && params[:iteration] != 'icebox'
+      @stories = @stories.select do |story|
+        params[:states].include?(story.current_state)
+      end
+    end
 
     @with_qr_codes = params[:with_qr_codes] == 'true'
     @page_backs = params[:page_backs] == 'true'
