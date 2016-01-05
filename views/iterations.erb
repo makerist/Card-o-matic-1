@@ -27,7 +27,7 @@
         <input type="radio" id="iteration_epics" name="iteration" value="epics" />
         <div class="iteration">
           Epics
-          <span class="date">All your Epics</span>
+          <span class="date">All your epics</span>
         </div>
       </label>
     </li>
@@ -35,7 +35,7 @@
       <label for="iteration_specfic">
         <input type="radio" id="iteration_specific" name="iteration" value="specific_stories" />
         <div class="iteration">
-          Specific Stories
+          Specific stories
           <label for="iteration_specific_ids">
             Comma-separated list of Story IDs
             <input type="text" id="iteration_specific_ids" name="story_ids" />
@@ -53,7 +53,7 @@
       </label>
     </li>
   </ul>
-
+<p>Or specific sprints:</p>
   <ul>
     <% @iterations.reverse_each do |iteration_number| %>
       <li>
