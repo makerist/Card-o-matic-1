@@ -3,6 +3,26 @@
 <head>
   <link href="/stylesheets/application.css" type="text/css" rel="stylesheet" media="all" />
   <title>Card-o-matic</title>
+  <% if settings.google_ad_id? %>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: "<%= settings.google_ad_id %>",
+  enable_page_level_ads: true
+});
+    </script>
+  <% end %>
+  <% if settings.google_analytics_id? %>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= settings.google_analytics_id %>"></script>
+    <script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', '<%= settings.google_analytics_id %>');
+    </script>
+  <% end %>
 </head>
 <body>
   <header>

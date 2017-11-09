@@ -25,6 +25,10 @@ class CardOMatic < Sinatra::Base
       enable :raise_errors
     end
   end
+  configure do
+    set(:google_ad_id, ENV["GOOGLE_AD_ID"])
+    set(:google_analytics_id, ENV["GOOGLE_ANALYTICS_ID"])
+  end
 
   get '/' do
     @intro = true
