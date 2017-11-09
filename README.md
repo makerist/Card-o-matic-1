@@ -14,3 +14,7 @@ and visit <http://localhost:5000> in your browser.
 ## Notes
 
 * The iteration selection is limited to the most recent three sprints due to the time it takes to load an iteration from Pivotal's API. This might be adjusted.
+
+## Legacy
+
+Forked from https://github.com/JordanHatch/card-o-matic
