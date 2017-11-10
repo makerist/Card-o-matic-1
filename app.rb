@@ -75,7 +75,7 @@ class CardOMatic < Sinatra::Base
       render_previous_step_with_error(:iterations, 'Please choose an iteration.')
     end
 
-    @story_link = "http://zxing.org/w/chart?cht=qr&chs=120x120&chld=L&choe=UTF-8&chl=https%3A%2F%2Fwww.pivotaltracker.com%2Fstory%2Fshow%2F"
+    @story_link = "https://zxing.org/w/chart?cht=qr&chs=120x120&chld=L&choe=UTF-8&chl=https%3A%2F%2Fwww.pivotaltracker.com%2Fstory%2Fshow%2F"
 
     @stories = case params[:iteration]
     when 'icebox'
