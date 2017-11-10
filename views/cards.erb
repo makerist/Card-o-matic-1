@@ -2,6 +2,17 @@
 <html>
 <head>
   <link href="/stylesheets/pivotal-cards.css" rel="stylesheet" type="text/css" media="all" />
+  <% if settings.google_analytics_id? %>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= settings.google_analytics_id %>"></script>
+    <script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', '<%= settings.google_analytics_id %>');
+    </script>
+  <% end %>
 </head>
 <body>
   <div id="pivotal-cards-pages" class="rubber-stamp double-sided">
