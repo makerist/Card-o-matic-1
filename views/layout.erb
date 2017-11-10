@@ -2,7 +2,7 @@
 <html>
 <head>
   <link href="/stylesheets/application.css" type="text/css" rel="stylesheet" media="all" />
-  <title>Card-o-matic</title>
+  <title>Card-o-matic - Print stories from Pivotal Tracker</title>
   <% if settings.google_ad_id? %>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
@@ -32,6 +32,10 @@ gtag('config', '<%= settings.google_analytics_id %>');
   <% if @intro %>
   <p class="intro">
     Generate printable story cards for your Pivotal Tracker project.
+  </p>
+
+  <p class="intro">
+    Card-o-matic is a small web application which takes a Pivotal API key and generates printable cards for each story in the selected iteration.
   </p>
   <% end %>
 
