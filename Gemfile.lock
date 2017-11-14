@@ -97,5 +97,8 @@ DEPENDENCIES
   tracker_api
   unicorn
 
+RUBY VERSION
+   ruby 2.3.5p376
+
 BUNDLED WITH
-   1.15.1
+   1.16.0
