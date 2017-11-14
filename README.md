@@ -2,7 +2,7 @@
 
 Card-o-matic is a small web application which takes a Pivotal API key and generates printable cards for each story in the selected iteration. It's largely based on the design of [@psd's](http://whatfettle.com/) [pivotal-cards](https://github.com/psd/pivotal-cards) bookmarklet.
 
-You can access the online version of [Card-o-matic] (https://card-o-matic.herokuapp.com) here.
+You can access the online version of [Card-o-matic](https://card-o-matic.herokuapp.com) here.
 
 ## Usage
 
