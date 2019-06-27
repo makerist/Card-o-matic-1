@@ -193,6 +193,14 @@
   vertical-align: top;
 }
 
+.front .story-id {
+  font-size: 0.85em;
+}
+
+.front .story-id:before {
+  content: "#";
+}
+
 .printed {
   font-size: 0.75em;
   color: #777;

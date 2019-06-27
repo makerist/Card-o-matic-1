@@ -30,11 +30,12 @@
                   <img src="<%= @story_link %><%= story.id %>" alt="Link to pivotal story" class="qr-image"/>
                 </span>
               <% end %>
+              <div class="story-id"><%= story.id %></div>
               <span class="printed"><%= Date.today %></span>
               <span class="labels">
 <!--                <span class="label current_state"><%#= story.current_state.gsub(/^./, story.current_state.chars.first.capitalize) %></span>-->
-                <% !story.labels.nil? and story.labels.each do |label| %>
-                  <span class="label"><%= label.name %></span>
+                <% story.labels.to_a.map(&:name).reject { |label| label == 'printed' }.each do |label| %>
+                  <span class="label"><%= label %></span>
                 <% end %>
               </span>
             </div>
