@@ -2,17 +2,6 @@
 <html>
 <head>
   <link href="/stylesheets/pivotal-cards.css" rel="stylesheet" type="text/css" media="all" />
-  <% if settings.google_analytics_id? %>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= settings.google_analytics_id %>"></script>
-    <script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', '<%= settings.google_analytics_id %>');
-    </script>
-  <% end %>
 </head>
 <body>
   <div id="pivotal-cards-pages" class="rubber-stamp double-sided">
@@ -43,11 +32,11 @@ gtag('config', '<%= settings.google_analytics_id %>');
               <% end %>
               <span class="printed"><%= Date.today %></span>
               <span class="labels">
-                <span class="label current_state"><%= story.current_state.gsub(/^./, story.current_state.chars.first.capitalize) %></span>
+<!--                <span class="label current_state"><%#= story.current_state.gsub(/^./, story.current_state.chars.first.capitalize) %></span>-->
                 <% !story.labels.nil? and story.labels.each do |label| %>
                   <span class="label"><%= label.name %></span>
                 <% end %>
-              <span>
+              </span>
             </div>
           </div>
         </div>

@@ -9,6 +9,9 @@ markdown = Redcarpet::Markdown.new(renderer)
 
 
 class CardOMatic < Sinatra::Base
+
+  LABEL_PRINTED = 'printed'
+
   configure :production do
     use Rack::SslEnforcer
 
@@ -107,6 +110,11 @@ class CardOMatic < Sinatra::Base
     when 'stories_since'
       date = params[:date_since]
       @project.stories(filter: "updated_since:\"#{date}\"")
+    when 'label'
+      @project.stories(filter: %Q(label:"#{params[:label]}"))
+    when 'unprinted'
+      @project.iterations(scope: :current_backlog).flat_map(&:stories).
+        reject { |story| story.labels.to_a.map(&:name).include? LABEL_PRINTED }
     when /\d+/
       iteration = params[:iteration].to_i
       options = { limit: 1 }
@@ -125,6 +133,8 @@ class CardOMatic < Sinatra::Base
 
     @with_qr_codes = params[:with_qr_codes] == 'true'
     @page_backs = params[:page_backs] == 'true'
+
+    mark_stories_as_printed if params[:mark_as_printed] == 'true'
 
     if @stories.any?
       erb :cards, :layout => false
@@ -163,6 +173,13 @@ class CardOMatic < Sinatra::Base
   def render_previous_step_with_error(view, error)
     @error = error
     halt(400, erb(view))
+  end
+
+  def mark_stories_as_printed
+    @stories.each do |story|
+      story.add_label(LABEL_PRINTED)
+      story.save
+    end
   end
 
   class InvalidProjectId < StandardError; end

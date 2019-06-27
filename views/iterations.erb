@@ -5,6 +5,14 @@
 <form action="/render" method="post" target="_blank">
   <ul>
     <li>
+      <label for="iteration_unprinted">
+        <input type="radio" id="iteration_unprinted" name="iteration" value="unprinted" />
+        <div class="iteration">
+          Stories from the Backlog and current iteration which have not the label <b>printed</b>
+        </div>
+      </label>
+    </li>
+    <li>
       <label for="iteration_icebox">
         <input type="radio" id="iteration_icebox" name="iteration" value="icebox" />
         <div class="iteration">
@@ -52,6 +60,15 @@
         </div>
       </label>
     </li>
+    <li>
+      <label for="iteration_label">
+        <input type="radio" id="iteration_label" name="iteration" value="label" />
+        <div class="iteration">
+          Label
+          <input type="text" id="iteration_label_text" name="label" />
+        </div>
+      </label>
+    </li>
   </ul>
 
   <ul>
@@ -65,6 +82,17 @@
         </label>
       </li>
     <% end %>
+  </ul>
+
+  <p>Would you like to set the label <b>printed</b> to the selected stories?</p>
+
+  <ul>
+    <li>
+      <label>
+        <input type="checkbox" id="mark-as-printed" name="mark_as_printed" value="true">
+        Mark stories as printed?
+      </label>
+    </li>
   </ul>
 
   <p>Would you like to print details on the back of the cards?</p>
